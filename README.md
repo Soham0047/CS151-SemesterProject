@@ -42,7 +42,7 @@ git clone https://github.com/Soham0047/CS151-SemesterProject
 ```
 Navigate to the Project Directory:
 ```bash
-cd faculty-scheduler
+cd faculty-scheduler/dev-03-0.2/
 ```
 
 ## Usage
@@ -64,7 +64,7 @@ mvn javafx:run
 
 ## Project Structure
 ```bash
-faculty-scheduler/
+faculty-scheduler/dev-03-0.2/
 ├── pom.xml
 ├── README.md
 ├── src/
