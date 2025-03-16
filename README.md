@@ -56,6 +56,11 @@ mvn clean compile
 ```bash
 mvn javafx:run
 ```
+## Team Contributions
+1. Soham Bhowmick - Core Programmer/GUI
+2. Sumi Yi - Review/Editor
+3. Dylan Matthews - Tester
+4. Ethan Bocaling - Tester
 
 ## Project Structure
 ```bash
