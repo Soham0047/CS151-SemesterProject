@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="rootPane"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="s25.cs151.application.HomePageController"
+            prefWidth="1080" prefHeight="720"
+            style="-fx-background-color: #F4F7FA;">
+
+    <!-- TOP BAR -->
+    <top>
+        <HBox fx:id="topBar" spacing="10" alignment="CENTER_LEFT"
+              style="-fx-background-color: #FFFFFF; -fx-padding: 10 20 10 20;
+                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 2);">
+            <!-- Logo -->
+            <ImageView fx:id="logoView" fitWidth="40" fitHeight="40">
+                <image>
+                    <Image url="@icons/schedule.png"/>
+                </image>
+            </ImageView>
+
+            <!-- Title -->
+            <Label fx:id="appTitle" text="Faculty's Office Hours Manager"
+                   style="-fx-font-family: 'Segoe UI', sans-serif;
+                          -fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+
+            <!-- Spacer -->
+            <Region fx:id="topSpacer">
+                <HBox.hgrow>ALWAYS</HBox.hgrow>
+            </Region>
+
+            <!-- Date Label -->
+            <Label fx:id="dateLabel" text="Today: "
+                   style="-fx-font-family: 'Segoe UI', sans-serif;
+                          -fx-text-fill: #666; -fx-font-size: 13;"/>
+        </HBox>
+    </top>
+
+    <!-- LEFT SIDEBAR -->
+    <left>
+        <VBox fx:id="leftSidebar" spacing="15"
+              style="-fx-padding: 20;"
+              prefWidth="300">
+            <!-- Home Button -->
+            <Button fx:id="btnHome" text="Home"
+                    onMouseEntered="#handleHoverEntered"
+                    onMouseExited="#handleHoverExited"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: #444;
+                           -fx-alignment: center-left;
+                           -fx-font-family: 'Segoe UI', sans-serif;
+                           -fx-font-size: 14;
+                           -fx-padding: 8 16;
+                           -fx-border-radius: 8;
+                           -fx-background-radius: 8;">
+                <graphic>
+                    <ImageView fitWidth="18" fitHeight="18">
+                        <image>
+                            <Image url="@icons/home.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <!-- Dashboard Button -->
+            <Button fx:id="btnDashboard" text="Dashboard"
+                    onMouseEntered="#handleHoverEntered"
+                    onMouseExited="#handleHoverExited"
+                    style="-fx-background-color: transparent;
+               -fx-text-fill: #444;
+               -fx-alignment: center-left;
+               -fx-font-family: 'Segoe UI', sans-serif;
+               -fx-font-size: 14;
+               -fx-padding: 8 16;
+               -fx-border-radius: 8;
+               -fx-background-radius: 8;">
+                <graphic>
+                    <ImageView fitWidth="18" fitHeight="18">
+                        <image>
+                            <Image url="@icons/dashboard.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <!-- Semester's Office Hours -->
+            <Button fx:id="btnSemester" text="Semester's Office Hours"
+                    onMouseEntered="#handleHoverEntered"
+                    onMouseExited="#handleHoverExited"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: #444;
+                           -fx-alignment: center-left;
+                           -fx-font-family: 'Segoe UI', sans-serif;
+                           -fx-font-size: 14;
+                           -fx-padding: 8 16;
+                           -fx-border-radius: 8;
+                           -fx-background-radius: 8;">
+                <graphic>
+                    <ImageView fitWidth="18" fitHeight="18">
+                        <image>
+                            <Image url="@icons/calendar.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <!-- Appointment -->
+            <Button fx:id="btnAppointment" text="Schedule Appointment"
+                    onMouseEntered="#handleHoverEntered"
+                    onMouseExited="#handleHoverExited"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: #444;
+                           -fx-alignment: center-left;
+                           -fx-font-family: 'Segoe UI', sans-serif;
+                           -fx-font-size: 14;
+                           -fx-padding: 8 16;
+                           -fx-border-radius: 8;
+                           -fx-background-radius: 8;">
+                <graphic>
+                    <ImageView fitWidth="18" fitHeight="18">
+                        <image>
+                            <Image url="@icons/appointment.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <!-- Search Schedules -->
+            <Button fx:id="btnSearch" text="Search Schedules"
+                    onMouseEntered="#handleHoverEntered"
+                    onMouseExited="#handleHoverExited"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: #444;
+                           -fx-alignment: center-left;
+                           -fx-font-family: 'Segoe UI', sans-serif;
+                           -fx-font-size: 14;
+                           -fx-padding: 8 16;
+                           -fx-border-radius: 8;
+                           -fx-background-radius: 8;">
+                <graphic>
+                    <ImageView fitWidth="18" fitHeight="18">
+                        <image>
+                            <Image url="@icons/search.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <!-- Reports -->
+            <Button fx:id="btnReports" text="Reports"
+                    onMouseEntered="#handleHoverEntered"
+                    onMouseExited="#handleHoverExited"
+                    style="-fx-background-color: transparent;
+                           -fx-text-fill: #444;
+                           -fx-alignment: center-left;
+                           -fx-font-family: 'Segoe UI', sans-serif;
+                           -fx-font-size: 14;
+                           -fx-padding: 8 16;
+                           -fx-border-radius: 8;
+                           -fx-background-radius: 8;">
+                <graphic>
+                    <ImageView fitWidth="18" fitHeight="18">
+                        <image>
+                            <Image url="@icons/report.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+        </VBox>
+    </left>
+
+    <!-- Welcome Message -->
+    <center>
+        <AnchorPane fx:id="homeCenterPane" style="-fx-padding: 30;">
+            <children>
+                <Label layoutX="20" layoutY="20" fx:id="welcomeLabel"
+                       text="Welcome, Dr. Jane Doe!"
+                       style="-fx-font-family: 'Segoe UI', sans-serif;
+                              -fx-font-size: 24;
+                              -fx-font-weight: bold;
+                              -fx-text-fill: #333;"/>
+                <!-- User Photo -->
+                <ImageView layoutX="20" layoutY="70" fx:id="userPhotoView" fitWidth="100" fitHeight="100">
+                    <clip>
+                        <Circle centerX="50" centerY="50" radius="50"/>
+                    </clip>
+                    <image>
+                        <Image url="@icons/userPhoto.png"/>
+                    </image>
+                </ImageView>
+                <!-- Instruction -->
+                <Label layoutX="20" layoutY="190" fx:id="instructionLabel"
+                       text="Please choose an option from the left menu."
+                       style="-fx-font-family: 'Segoe UI', sans-serif;
+                              -fx-font-size: 16;
+                              -fx-text-fill: #555;"/>
+            </children>
+        </AnchorPane>
+    </center>
+
+    <!-- FOOTER -->
+    <bottom>
+        <HBox fx:id="footerBox" alignment="CENTER"
+              style="-fx-background-color: transparent; -fx-padding: 10;">
+            <Label fx:id="footerLabel"
+                   style="-fx-font-family: 'Segoe UI', sans-serif;
+              -fx-text-fill: #888;
+              -fx-font-size: 12;"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
