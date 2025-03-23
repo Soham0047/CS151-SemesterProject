@@ -4,6 +4,8 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
 <BorderPane fx:id="rootPane"
             xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
@@ -153,10 +155,20 @@
                         <!-- Semester Label/TextField -->
                         <Label fx:id="semesterLabel" text="Semester"
                                style="-fx-font-family: 'Segoe UI', sans-serif;
-                                      -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #333;" />
-                        <TextField fx:id="semesterField" text="Spring"
-                                   style="-fx-font-family: 'Segoe UI', sans-serif;
-                                          -fx-font-size: 14; -fx-padding: 8; -fx-text-fill: #333;" />
+              -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #333;" />
+                        <ComboBox fx:id="semesterDropdown"
+                                  style="-fx-font-family: 'Segoe UI', sans-serif;
+                 -fx-font-size: 14; -fx-padding: 4; -fx-text-fill: #333;">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Spring"/>
+                                    <String fx:value="Summer"/>
+                                    <String fx:value="Fall"/>
+                                    <String fx:value="Winter"/>
+                                </FXCollections>
+                            </items>
+                            <value>Spring</value> <!-- Default selection -->
+                        </ComboBox>
 
                         <!-- Year Label/TextField -->
                         <Label fx:id="yearLabel" text="Year"

@@ -46,7 +46,7 @@ public class DefineSemesterController {
 
     // Form fields
     @FXML
-    private TextField semesterField;
+    private ComboBox<String> semesterDropdown;
     @FXML
     private TextField yearField;
     @FXML
@@ -83,7 +83,7 @@ public class DefineSemesterController {
     @FXML
     private void handleSave() {
         //Gather values from the UI
-        String semester = semesterField.getText();
+        String semester = semesterDropdown.getValue();
         String year = yearField.getText();
 
         // print out the form data debug purpose
