@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="rootPane" prefHeight="720" prefWidth="1080" style="-fx-background-color: #F4F7FA;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="s25.cs151.application.ReportsController">
+
+   <top>
+      <HBox fx:id="topBar" alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: #FFFFFF;             -fx-padding: 10 20 10 20;             -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 2);">
+         <children>
+            <ImageView fx:id="logoView" fitHeight="40" fitWidth="40">
+               <image>
+                  <Image url="@icons/schedule.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="appTitle" style="-fx-font-family: 'Segoe UI', sans-serif;                           -fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #333;" text="Faculty's Office Hours Manager" />
+            <Region fx:id="topSpacer" HBox.hgrow="ALWAYS" />
+            <Label fx:id="dateLabel" style="-fx-font-family: 'Segoe UI', sans-serif;                           -fx-text-fill: #666; -fx-font-size: 13;" text="Today: " />
+         </children>
+      </HBox>
+   </top>
+
+
+   <left>
+      <VBox fx:id="leftSidebar" prefWidth="220" spacing="15" style="-fx-padding: 20;">
+         <children>
+            <Button fx:id="btnHome" style="-fx-background-color: transparent; -fx-text-fill: #444;                            -fx-alignment: center-left; -fx-font-family: 'Segoe UI', sans-serif;                            -fx-font-size: 14; -fx-padding: 8 16;" text="Home">
+               <graphic>
+                  <ImageView fitHeight="18" fitWidth="18">
+                     <image>
+                        <Image url="@icons/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnDashboard" style="-fx-background-color: transparent; -fx-text-fill: #444;                            -fx-alignment: center-left; -fx-font-family: 'Segoe UI', sans-serif;                            -fx-font-size: 14; -fx-padding: 8 16;" text="Dashboard">
+               <graphic>
+                  <ImageView fitHeight="18" fitWidth="18">
+                     <image>
+                        <Image url="@icons/dashboard.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnSemester" style="-fx-background-color: transparent; -fx-text-fill: #444;                            -fx-alignment: center-left; -fx-font-family: 'Segoe UI', sans-serif;                            -fx-font-size: 14; -fx-padding: 8 16;" text="Semester's Office Hours">
+               <graphic>
+                  <ImageView fitHeight="18" fitWidth="18">
+                     <image>
+                        <Image url="@icons/calendar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnAppointment" style="-fx-background-color: transparent; -fx-text-fill: #444;                            -fx-alignment: center-left; -fx-font-family: 'Segoe UI', sans-serif;                            -fx-font-size: 14; -fx-padding: 8 16;" text="Schedule Appointment">
+               <graphic>
+                  <ImageView fitHeight="18" fitWidth="18">
+                     <image>
+                        <Image url="@icons/appointment.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnSearch" style="-fx-background-color: transparent; -fx-text-fill: #444;                            -fx-alignment: center-left; -fx-font-family: 'Segoe UI', sans-serif;                            -fx-font-size: 14; -fx-padding: 8 16;" text="Search Schedules">
+               <graphic>
+                  <ImageView fitHeight="18" fitWidth="18">
+                     <image>
+                        <Image url="@icons/search.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnReports" style="-fx-background-color: transparent; -fx-text-fill: #444;                            -fx-alignment: center-left; -fx-font-family: 'Segoe UI', sans-serif;                            -fx-font-size: 14; -fx-padding: 8 16;" text="Reports">
+               <graphic>
+                  <ImageView fitHeight="18" fitWidth="18">
+                     <image>
+                        <Image url="@icons/report.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+
+
+   <center>
+      <ScrollPane fx:id="mainScrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background: transparent;">
+         <content>
+            <VBox fx:id="container" alignment="TOP_LEFT" spacing="10" style="-fx-background-color: #FFFFFF;                          -fx-background-radius: 10; -fx-padding: 30;">
+               <children>
+                  <Label fx:id="heading" style="-fx-font-family: 'Segoe UI', sans-serif;                                   -fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: #333;" text="Reports" />
+                  <TableView fx:id="reportsTable" prefHeight="531.0" prefWidth="798.0">
+                     <columns>
+                        <TableColumn fx:id="semesterCol" prefWidth="162.0" text="Semester" />
+                        <TableColumn fx:id="yearCol" prefWidth="155.0" text="Year" />
+                        <TableColumn fx:id="daysCol" prefWidth="454.0" text="Days" />
+                     </columns>
+                  </TableView>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+
+
+   <bottom>
+      <HBox fx:id="footerBox" alignment="CENTER" style="-fx-background-color: transparent; -fx-padding: 10;">
+         <children>
+            <Label fx:id="footerLabel" style="-fx-font-family: 'Segoe UI', sans-serif;               -fx-text-fill: #888;               -fx-font-size: 12;" />
+         </children>
+      </HBox>
+   </bottom>
+
+</BorderPane>

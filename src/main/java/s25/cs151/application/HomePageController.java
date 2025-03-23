@@ -61,6 +61,7 @@ public class HomePageController {
         dateLabel.setText("Today: " + today);
         btnHome.setOnAction(e -> handleHome());
         btnSemester.setOnAction(e -> handleSemester());
+        btnReports.setOnAction(e -> handleReports());
 
         // Dynamic footer year
         int currentYear = LocalDate.now().getYear();
@@ -75,6 +76,10 @@ public class HomePageController {
     private void handleSemester() {
         // Navigate to DefineSemester.fxml or some other page
         Main.setRoot("DefineSemester.fxml");
+    }
+
+    private void handleReports() {
+        Main.setRoot("Reports.fxml");
     }
 
     /**
