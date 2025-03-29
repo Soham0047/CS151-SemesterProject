@@ -4,16 +4,18 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="s25.cs151.application.TimeSlotController">
    <children>
-      <VBox fx:id="container" alignment="TOP_LEFT" spacing="10" style="-fx-background-color: #FFFFFF;                          -fx-background-radius: 10; -fx-padding: 30;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0">
+      <VBox fx:id="container" alignment="TOP_LEFT" prefHeight="520.0" prefWidth="601.0" spacing="10" style="-fx-background-color: #FFFFFF;                          -fx-background-radius: 10; -fx-padding: 30;" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0">
          <children>
             <Label fx:id="heading" style="-fx-font-family: 'Segoe UI', sans-serif;                                   -fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: #333;" text="Enter Time Slots" />
             <Label fx:id="subHeading" style="-fx-font-family: 'Segoe UI', sans-serif;                                   -fx-text-fill: #666; -fx-font-size: 14;" text="Enter appointment time slots" />
-            <VBox prefHeight="312.0" prefWidth="540.0" style="-fx-padding: 20 0 0 0;">
+            <VBox prefHeight="109.0" prefWidth="540.0" style="-fx-padding: 20 0 0 0;">
                <children>
                   <Label fx:id="semesterLabel" style="-fx-font-family: 'Segoe UI', sans-serif;               -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #333;" text="From Hour:" />
                   <ComboBox fx:id="fromHour" prefWidth="150.0" />
@@ -30,6 +32,15 @@
                   </Button>
                </children>
             </VBox>
+            <TableView fx:id="timeSlotTable" prefHeight="208.0" prefWidth="541.0">
+              <columns>
+                <TableColumn fx:id="fromCol" prefWidth="257.0" text="From" />
+                <TableColumn fx:id="toCol" minWidth="0.0" prefWidth="282.0" text="To" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
          </children>
       </VBox>
    </children>
