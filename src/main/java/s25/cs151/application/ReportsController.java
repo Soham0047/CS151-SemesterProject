@@ -3,7 +3,6 @@ package s25.cs151.application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -16,16 +15,6 @@ import java.util.List;
 //Reports.fxml controller
 public class ReportsController {
 
-    //Buttons
-    @FXML
-    private Button btnHome;
-    @FXML
-    private Button btnSemester;
-    @FXML
-    private Button btnAppointment;
-    @FXML
-    private Button btnSearch;
-
     @FXML private TableView<SemesterEntry> reportsTable;
     @FXML private TableColumn<SemesterEntry, String> yearCol;
     @FXML private TableColumn<SemesterEntry, String> daysCol;
@@ -33,9 +22,6 @@ public class ReportsController {
 
     @FXML
     public void initialize() {
-        //Navigation
-        btnHome.setOnAction(e -> Main.setRoot("HomePage.fxml"));
-        btnSemester.setOnAction(e -> Main.setRoot("DefineSemester.fxml"));
 
         //Link table columns to SemesterEntry properties
         semesterCol.setCellValueFactory(new PropertyValueFactory<>("semester"));

@@ -14,23 +14,12 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) {
         primaryStage = stage;
-        primaryStage.setTitle("Office Hours Manager");
-
-        // Load the Home Page on startup
-        setRoot("HomePage.fxml");
-
-        primaryStage.show();
-    }
-
-    /**
-     * Switching the scene to a new FXML file.
-     * @param fxml the FXML file name
-     */
-    public static void setRoot(String fxml) {
         try {
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/" + fxml));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/MainLayout.fxml"));
             Scene scene = new Scene(loader.load());
             primaryStage.setScene(scene);
+            primaryStage.setTitle("Office Hours Manager");
+            primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }

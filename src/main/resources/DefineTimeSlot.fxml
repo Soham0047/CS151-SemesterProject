@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="s25.cs151.application.TimeSlotController">
+   <children>
+      <VBox fx:id="container" alignment="TOP_LEFT" spacing="10" style="-fx-background-color: #FFFFFF;                          -fx-background-radius: 10; -fx-padding: 30;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0">
+         <children>
+            <Label fx:id="heading" style="-fx-font-family: 'Segoe UI', sans-serif;                                   -fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: #333;" text="Enter Time Slots" />
+            <Label fx:id="subHeading" style="-fx-font-family: 'Segoe UI', sans-serif;                                   -fx-text-fill: #666; -fx-font-size: 14;" text="Enter appointment time slots" />
+            <VBox prefHeight="312.0" prefWidth="540.0" style="-fx-padding: 20 0 0 0;">
+               <children>
+                  <Label fx:id="semesterLabel" style="-fx-font-family: 'Segoe UI', sans-serif;               -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #333;" text="From Hour:" />
+                  <ComboBox fx:id="fromHour" prefWidth="150.0" />
+                  <Label fx:id="semesterLabel1" style="-fx-font-family: 'Segoe UI', sans-serif;               -fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #333;" text="To Hour:">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <ComboBox fx:id="toHour" prefWidth="150.0" />
+                  <Button fx:id="saveButton" onAction="#handleSave" style="-fx-background-color: #506EF9;                                        -fx-text-fill: white;                                        -fx-font-family: 'Segoe UI', sans-serif;                                        -fx-font-weight: bold;                                        -fx-font-size: 14;                                        -fx-padding: 10 20;                                        -fx-border-radius: 5;                                        -fx-background-radius: 5;" text="Save">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
