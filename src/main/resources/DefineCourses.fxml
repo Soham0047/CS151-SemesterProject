@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Define Courses Page
+  - Allows user to enter: Course Code, Course Name, Section
+  - Displays them in a TableView sorted ascending by Course Code
+  - Prevent duplicates
+  - Save to "courses_data.txt"
+-->
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+
+<BorderPane fx:id="rootPane"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="s25.cs151.application.DefineCoursesController"
+            prefWidth="1080" prefHeight="720"
+            style="-fx-background-color: #F4F7FA;">
+
+    <!-- CENTER CONTENT -->
+    <center>
+        <VBox fx:id="container" spacing="20" alignment="TOP_CENTER"
+              style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-padding: 30; -fx-max-width: 800;">
+            <Label text="Define Courses"
+                   style="-fx-font-family: 'Segoe UI', sans-serif; -fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+
+            <!-- Form for entering course info -->
+            <GridPane fx:id="formPane" hgap="15" vgap="15">
+                <Label text="Course Code:" style="-fx-font-family: 'Segoe UI'; -fx-font-size: 14;"/>
+                <TextField fx:id="codeField" style="-fx-font-family: 'Segoe UI'; -fx-font-size: 14;" GridPane.columnIndex="1"/>
+
+                <Label text="Course Name:" style="-fx-font-family: 'Segoe UI'; -fx-font-size: 14;" GridPane.rowIndex="1"/>
+                <TextField fx:id="nameField" style="-fx-font-family: 'Segoe UI'; -fx-font-size: 14;" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                <Label text="Section:" style="-fx-font-family: 'Segoe UI'; -fx-font-size: 14;" GridPane.rowIndex="2"/>
+                <TextField fx:id="sectionField" style="-fx-font-family: 'Segoe UI'; -fx-font-size: 14;" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            </GridPane>
+
+            <Button text="Add Course" onAction="#handleAddCourse"
+                    style="-fx-background-color: #506EF9; -fx-text-fill: white; -fx-font-family: 'Segoe UI'; -fx-font-size: 14; -fx-padding: 10 20; -fx-background-radius: 5;"/>
+
+            <!-- TableView to display courses -->
+            <TableView fx:id="coursesTable" prefHeight="300" prefWidth="600">
+                <columns>
+                    <TableColumn fx:id="colCode" text="Course Code" prefWidth="200"/>
+                    <TableColumn fx:id="colName" text="Course Name" prefWidth="250"/>
+                    <TableColumn fx:id="colSection" text="Section" prefWidth="150"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+    <!-- OPTIONAL: If you want a bottom footer or top bar, add them here or rely on MainLayout -->
+</BorderPane>

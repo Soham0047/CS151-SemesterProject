@@ -23,7 +23,7 @@ public class MainLayoutController {
 
     //Left Sidebar
     @FXML
-    private Button btnHome, btnSemester, btnReports, btnTime;
+    private Button btnHome, btnSemester, btnReports, btnTime, btnCourses;
 
     //Form Fields?
     @FXML
@@ -37,6 +37,7 @@ public class MainLayoutController {
         btnSemester.setOnAction(e -> loadCenter("DefineSemester.fxml"));
         btnReports.setOnAction(e -> loadCenter("Reports.fxml"));
         btnTime.setOnAction(e -> loadCenter("DefineTimeSlot.fxml"));
+        btnCourses.setOnAction(e -> loadCenter("DefineCourses.fxml"));
 
         // Set todays date in the dateLabel
         String today = LocalDate.now().format(DateTimeFormatter.ofPattern("MMMM d, yyyy"));

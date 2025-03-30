@@ -75,6 +75,26 @@
                   </ImageView>
                </graphic>
             </Button>
+            <Button fx:id="btnCourses"
+                    onMouseEntered="#handleHoverEntered"
+                    onMouseExited="#handleHoverExited"
+                    style="-fx-background-color: transparent;
+               -fx-text-fill: #444;
+               -fx-alignment: center-left;
+               -fx-font-family: 'Segoe UI', sans-serif;
+               -fx-font-size: 14;
+               -fx-padding: 8 16;
+               -fx-border-radius: 8;
+               -fx-background-radius: 8;"
+                    text="Courses">
+               <graphic>
+                  <ImageView fitHeight="18" fitWidth="18">
+                     <image>
+                        <Image url="@icons/dashboard.png"/>
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
             <Button fx:id="btnSearch" onMouseEntered="#handleHoverEntered" onMouseExited="#handleHoverExited" style="-fx-background-color: transparent;                            -fx-text-fill: #444;                            -fx-alignment: center-left;                            -fx-font-family: 'Segoe UI', sans-serif;                            -fx-font-size: 14;                            -fx-padding: 8 16;                            -fx-border-radius: 8;                            -fx-background-radius: 8;" text="Search Schedules">
                <graphic>
                   <ImageView fitHeight="18" fitWidth="18">
