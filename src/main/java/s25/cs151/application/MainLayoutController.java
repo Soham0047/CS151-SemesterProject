@@ -7,52 +7,61 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class MainLayoutController {
-    //Top Bar
+    // Top Bar
     @FXML
     private Label dateLabel;
 
-    //Center
+    // Center content pane where different routes are displayed.
     @FXML
     private AnchorPane centerContent;
 
-    //Left Sidebar
+    // Left Sidebar buttons – ensure all IDs match those in your FXML
     @FXML
-    private Button btnHome, btnSemester, btnReports, btnTime, btnCourses;
+    private Button btnHome, btnDashboard, btnSemester, btnTime, btnAppointment, btnCourses, btnSearch, btnReports, btnOfficeHoursReport;
 
-    //Form Fields?
+    // Footer label (or any other form field)
     @FXML
     private Label footerLabel;
 
     @FXML
     public void initialize() {
-        loadCenter("HomePage.fxml"); //Load homepage as default
+        // Load the home page by default
+        loadCenter("HomePage.fxml");
 
+        // Set up navigation for each button
         btnHome.setOnAction(e -> loadCenter("HomePage.fxml"));
+        btnDashboard.setOnAction(e -> loadCenter("Dashboard.fxml"));         // if defined
         btnSemester.setOnAction(e -> loadCenter("DefineSemester.fxml"));
-        btnReports.setOnAction(e -> loadCenter("Reports.fxml"));
         btnTime.setOnAction(e -> loadCenter("DefineTimeSlot.fxml"));
         btnCourses.setOnAction(e -> loadCenter("DefineCourses.fxml"));
+        btnReports.setOnAction(e -> loadCenter("Reports.fxml"));
+        btnOfficeHoursReport.setOnAction(e -> loadCenter("OfficeHoursScheduleReport.fxml"));
+        btnAppointment.setOnAction(e -> loadCenter("OfficeHoursSchedule.fxml"));
 
-        // Set todays date in the dateLabel
+        // Optionally, setup btnSearch if needed:
+        btnSearch.setOnAction(e -> loadCenter("SearchSchedules.fxml"));         // if defined
+
+        // Set today's date on the top bar
         String today = LocalDate.now().format(DateTimeFormatter.ofPattern("MMMM d, yyyy"));
         dateLabel.setText("Today: " + today);
 
-        // Dynamic footer year
+        // Set dynamic footer with the current year
         int currentYear = LocalDate.now().getYear();
         footerLabel.setText("© " + currentYear + " Faculty's Office Hours Manager. All rights reserved.");
     }
 
+    // Utility method to load an FXML file into the centerContent pane.
     private void loadCenter(String fxml) {
         try {
             Parent content = FXMLLoader.load(getClass().getResource("/" + fxml));
             centerContent.getChildren().setAll(content);
 
+            // Set anchor constraints so the loaded content fills the pane.
             AnchorPane.setTopAnchor(content, 0.0);
             AnchorPane.setLeftAnchor(content, 0.0);
             AnchorPane.setRightAnchor(content, 0.0);
@@ -63,7 +72,7 @@ public class MainLayoutController {
     }
 
     /**
-     * Hover enter
+     * Hover enter event – changes button style when mouse hovers over.
      */
     @FXML
     private void handleHoverEntered(MouseEvent event) {
@@ -79,7 +88,7 @@ public class MainLayoutController {
     }
 
     /**
-     * Hover exit
+     * Hover exit event – resets button style when mouse leaves.
      */
     @FXML
     private void handleHoverExited(MouseEvent event) {

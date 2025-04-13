@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="s25.cs151.application.OfficeHoursScheduleReportController">
+    <children>
+        <TableView fx:id="officeHoursTable" prefWidth="800" prefHeight="600" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.bottomAnchor="10">
+            <columns>
+                <TableColumn fx:id="studentNameCol" text="Student Name" prefWidth="150" />
+                <TableColumn fx:id="scheduleDateCol" text="Schedule Date" prefWidth="150" />
+                <TableColumn fx:id="timeSlotCol" text="Time Slot" prefWidth="200" />
+                <TableColumn fx:id="courseCol" text="Course" prefWidth="150" />
+                <TableColumn fx:id="reasonCol" text="Reason" prefWidth="100" />
+                <TableColumn fx:id="commentCol" text="Comment" prefWidth="100" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>
