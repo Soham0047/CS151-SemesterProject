@@ -42,9 +42,7 @@ public class MainLayoutController {
         btnReports.setOnAction(e -> loadCenter("Reports.fxml"));
         btnOfficeHoursReport.setOnAction(e -> loadCenter("OfficeHoursScheduleReport.fxml"));
         btnAppointment.setOnAction(e -> loadCenter("OfficeHoursSchedule.fxml"));
-
-        // Optionally, setup btnSearch if needed:
-        btnSearch.setOnAction(e -> loadCenter("SearchSchedules.fxml"));         // if defined
+        btnSearch.setOnAction(e -> loadCenter("OfficeHoursSearch.fxml"));
 
         // Set today's date on the top bar
         String today = LocalDate.now().format(DateTimeFormatter.ofPattern("MMMM d, yyyy"));

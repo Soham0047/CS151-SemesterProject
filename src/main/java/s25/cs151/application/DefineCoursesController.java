@@ -27,7 +27,7 @@ public class DefineCoursesController {
 
     private ObservableList<Course> courseList;
 
-    private final String DATA_FILE = "courses_data.txt";
+    private final String DATA_FILE = "office_hours_schedule.txt";
 
     @FXML
     public void initialize() {
