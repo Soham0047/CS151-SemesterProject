@@ -1,0 +1,7 @@
+Spring,2025,Monday Tuesday Wednesday
+Summer,2025,Monday Wednesday Thursday Friday
+Spring,2026,Monday Tuesday Wednesday
+Summer,2025,Monday Tuesday Wednesday
+Fall,2025,Monday Tuesday
+Winter,2025,Monday Tuesday
+Spring,2025,Tuesday Thursday
