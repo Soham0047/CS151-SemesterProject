@@ -36,7 +36,7 @@
                   <RowConstraints />
                </rowConstraints>
             </GridPane>
-            <TableView fx:id="coursesTable" prefHeight="510.0" prefWidth="740.0">
+            <TableView fx:id="officeHoursTable" prefHeight="510.0" prefWidth="740.0">
                <columns>
                   <TableColumn fx:id="colCourse" prefWidth="200" text="Course" />
                   <TableColumn fx:id="colScheduleDate" prefWidth="280.0" text="Schedule Date" />

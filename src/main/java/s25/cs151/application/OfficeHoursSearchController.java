@@ -16,6 +16,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class OfficeHoursSearchController {
     @FXML private TextField nameField;
@@ -24,68 +25,100 @@ public class OfficeHoursSearchController {
     @FXML private TableColumn<Course, String> colTimeSlot;
 
     @FXML
-    private TableView<OfficeHoursScheduleEntry> officeHoursTable;
-    @FXML
-    private TableColumn<OfficeHoursScheduleEntry, String> studentNameCol;
-    @FXML
-    private TableColumn<OfficeHoursScheduleEntry, LocalDate> scheduleDateCol;
-    @FXML
-    private TableColumn<OfficeHoursScheduleEntry, String> timeSlotCol;
-    @FXML
-    private TableColumn<OfficeHoursScheduleEntry, String> courseCol;
-    @FXML
-    private TableColumn<OfficeHoursScheduleEntry, String> reasonCol;
-    @FXML
-    private TableColumn<OfficeHoursScheduleEntry, String> commentCol;
+    private TableView<OfficeHoursSearchEntry> officeHoursTable;
 
     @FXML
     public void initialize() {
-        studentNameCol.setCellValueFactory(new PropertyValueFactory<>("studentName"));
-        scheduleDateCol.setCellValueFactory(new PropertyValueFactory<>("scheduleDate"));
-        timeSlotCol.setCellValueFactory(new PropertyValueFactory<>("timeSlot"));
-        courseCol.setCellValueFactory(new PropertyValueFactory<>("course"));
-        reasonCol.setCellValueFactory(new PropertyValueFactory<>("reason"));
-        commentCol.setCellValueFactory(new PropertyValueFactory<>("comment"));
-
-
-        ObservableList<OfficeHoursScheduleEntry> entries = ();
+        colCourse.setCellValueFactory(new PropertyValueFactory<>("course"));
+        colScheduleDate.setCellValueFactory(new PropertyValueFactory<>("scheduleDate"));
+        colTimeSlot.setCellValueFactory(new PropertyValueFactory<>("timeSlot"));
 
     }
     @FXML
     private void handleSearchSchedule() {
+        String studentNameInput = nameField.getText().trim().toLowerCase();
 
+        if (studentNameInput.isEmpty()) {
+            officeHoursTable.setItems(FXCollections.observableArrayList());
+            return;
+        }
+
+        try {
+            List<String> lines = Files.readAllLines(Paths.get("office_hours_schedule.txt"));
+
+            List<OfficeHoursSearchEntry> matchingEntries = lines.stream()
+                    .map(line -> line.split(",", -1))
+                    .filter(parts -> parts.length >= 6)
+                    .filter(parts -> parts[0].trim().toLowerCase().startsWith(studentNameInput))
+                    .map(parts -> new OfficeHoursSearchEntry(
+                            parts[0].trim(),
+                            LocalDate.parse(parts[1].trim()),
+                            parts[2].trim(),
+                            parts[3].trim()
+                    ))
+                    .collect(Collectors.toList());
+
+            //Sort by date descending, then time slot ascending
+            matchingEntries.sort((e1, e2) -> {
+                int dateComparison = e2.getScheduleDate().compareTo(e1.getScheduleDate());
+                if (dateComparison != 0) {
+                    return dateComparison;
+                }
+                return e1.getTimeSlot().compareToIgnoreCase(e2.getTimeSlot());
+            });
+
+            ObservableList<OfficeHoursSearchEntry> observableList = FXCollections.observableArrayList(matchingEntries);
+            officeHoursTable.setItems(observableList);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     private void handleDeleteSchedule() {
+        OfficeHoursSearchEntry selectedEntry = officeHoursTable.getSelectionModel().getSelectedItem();
 
-    }
+        if (selectedEntry == null) {
+            System.out.println("No entry selected to delete.");
+            return;
+        }
 
-    private ObservableList<OfficeHoursScheduleEntry> loadOfficeHoursEntries() {
-        ObservableList<OfficeHoursScheduleEntry> list = FXCollections.observableArrayList();
+        // Remove from TableView
+        officeHoursTable.getItems().remove(selectedEntry);
+
         try {
+            //Read all lines from the file
             List<String> lines = Files.readAllLines(Paths.get("office_hours_schedule.txt"));
-            for (String line : lines) {
-                if (line.trim().isEmpty()) continue;  // skip any empty lines
-                // Expecting: studentName,scheduleDate,timeSlot,course,reason,comment
-                String[] parts = line.split(",", -1);
-                if (parts.length >= 6) {
-                    String studentName = parts[0].trim();
-                    // Parse the schedule date string into a LocalDate.
-                    LocalDate scheduleDate = LocalDate.parse(parts[1].trim());
-                    String timeSlot = parts[2].trim();
-                    String course = parts[3].trim();
-                    String reason = parts[4].trim();
-                    String comment = parts[5].trim();
-                    OfficeHoursScheduleEntry entry = new OfficeHoursScheduleEntry(studentName, scheduleDate,
-                            timeSlot, course, reason, comment);
-                    list.add(entry);
-                }
-            }
+
+            //Rebuild the file without the deleted entry
+            List<String> updatedLines = lines.stream()
+                    .filter(line -> {
+                        String[] parts = line.split(",", -1);
+                        if (parts.length < 6) return true;
+
+                        String studentName = parts[0].trim();
+                        String scheduleDate = parts[1].trim();
+                        String timeSlot = parts[2].trim();
+                        String course = parts[3].trim();
+
+                        // Match the same entry to delete
+                        return !(studentName.equalsIgnoreCase(selectedEntry.getName()) &&
+                                scheduleDate.equals(selectedEntry.getScheduleDate().toString()) &&
+                                timeSlot.equals(selectedEntry.getTimeSlot()) &&
+                                course.equals(selectedEntry.getCourse()));
+                    })
+                    .toList();
+
+            //Write the updated lines back to the file
+            Files.write(Paths.get("office_hours_schedule.txt"), updatedLines);
+
+            System.out.println("Entry deleted successfully.");
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return list;
+
     }
 }
 
