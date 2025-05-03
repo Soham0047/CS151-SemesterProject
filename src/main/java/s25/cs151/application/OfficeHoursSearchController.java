@@ -3,19 +3,17 @@ package s25.cs151.application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.nio.file.*;
 import java.time.LocalDate;
-import java.util.List;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
+import java.util.stream.Collectors;
+
 
 public class OfficeHoursSearchController {
     @FXML private TextField nameField;
@@ -48,12 +46,27 @@ public class OfficeHoursSearchController {
         commentCol.setCellValueFactory(new PropertyValueFactory<>("comment"));
 
 
-        ObservableList<OfficeHoursScheduleEntry> entries = ();
+        ObservableList<OfficeHoursScheduleEntry> entries = FXCollections.observableArrayList(loadOfficeHoursEntries());
+        officeHoursTable.setItems(entries);
 
     }
     @FXML
     private void handleSearchSchedule() {
+        String term = nameField.getText().toLowerCase().trim();
+        List<OfficeHoursScheduleEntry> all = loadOfficeHoursEntries();
+        List<OfficeHoursScheduleEntry> filtered = all.stream()
+                .filter(e -> term.isEmpty() ||
+                        e.getStudentName().toLowerCase().contains(term))
+                .collect(Collectors.toList());
 
+        // sort descending by date then slot:
+        FXCollections.sort(
+                FXCollections.observableArrayList(filtered),
+                Comparator.comparing(OfficeHoursScheduleEntry::getScheduleDate).reversed()
+                        .thenComparing(OfficeHoursScheduleEntry::getTimeSlot).reversed()
+        );
+
+        officeHoursTable.setItems(FXCollections.observableArrayList(filtered));
     }
 
     @FXML

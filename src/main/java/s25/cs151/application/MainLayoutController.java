@@ -22,7 +22,7 @@ public class MainLayoutController {
 
     // Left Sidebar buttons – ensure all IDs match those in your FXML
     @FXML
-    private Button btnHome, btnDashboard, btnSemester, btnTime, btnAppointment, btnCourses, btnSearch, btnReports, btnOfficeHoursReport;
+    private Button btnHome, btnDashboard, btnSemester, btnTime, btnAppointment, btnCourses, btnSearch, btnReports, btnOfficeHours;
 
     // Footer label (or any other form field)
     @FXML
@@ -40,7 +40,7 @@ public class MainLayoutController {
         btnTime.setOnAction(e -> loadCenter("DefineTimeSlot.fxml"));
         btnCourses.setOnAction(e -> loadCenter("DefineCourses.fxml"));
         btnReports.setOnAction(e -> loadCenter("Reports.fxml"));
-        btnOfficeHoursReport.setOnAction(e -> loadCenter("OfficeHoursScheduleReport.fxml"));
+        btnOfficeHours.setOnAction(e -> loadCenter("EditOfficeHours.fxml"));
         btnAppointment.setOnAction(e -> loadCenter("OfficeHoursSchedule.fxml"));
         btnSearch.setOnAction(e -> loadCenter("OfficeHoursSearch.fxml"));
 
@@ -99,5 +99,10 @@ public class MainLayoutController {
                 + "-fx-padding: 8 16;"
                 + "-fx-border-radius: 8;"
                 + "-fx-background-radius: 8;");
+    }
+
+    @FXML
+    private void handleOfficeHours() {
+        loadCenter("EditOfficeHours.fxml");
     }
 }
