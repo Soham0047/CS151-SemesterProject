@@ -3,20 +3,22 @@ package s25.cs151.application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.nio.file.*;
 import java.time.LocalDate;
+<<<<<<< HEAD
 import java.util.List;
 import java.util.stream.Collectors;
+=======
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
+import java.util.stream.Collectors;
+
+>>>>>>> assignment-code-version-8-sb
 
 public class OfficeHoursSearchController {
     @FXML private TextField nameField;
@@ -29,50 +31,34 @@ public class OfficeHoursSearchController {
 
     @FXML
     public void initialize() {
-        colCourse.setCellValueFactory(new PropertyValueFactory<>("course"));
-        colScheduleDate.setCellValueFactory(new PropertyValueFactory<>("scheduleDate"));
-        colTimeSlot.setCellValueFactory(new PropertyValueFactory<>("timeSlot"));
+        studentNameCol.setCellValueFactory(new PropertyValueFactory<>("studentName"));
+        scheduleDateCol.setCellValueFactory(new PropertyValueFactory<>("scheduleDate"));
+        timeSlotCol.setCellValueFactory(new PropertyValueFactory<>("timeSlot"));
+        courseCol.setCellValueFactory(new PropertyValueFactory<>("course"));
+        reasonCol.setCellValueFactory(new PropertyValueFactory<>("reason"));
+        commentCol.setCellValueFactory(new PropertyValueFactory<>("comment"));
 
+
+        ObservableList<OfficeHoursScheduleEntry> entries = FXCollections.observableArrayList(loadOfficeHoursEntries());
+        officeHoursTable.setItems(entries);
     }
     @FXML
     private void handleSearchSchedule() {
-        String studentNameInput = nameField.getText().trim().toLowerCase();
+        String term = nameField.getText().toLowerCase().trim();
+        List<OfficeHoursScheduleEntry> all = loadOfficeHoursEntries();
+        List<OfficeHoursScheduleEntry> filtered = all.stream()
+                .filter(e -> term.isEmpty() ||
+                        e.getStudentName().toLowerCase().contains(term))
+                .collect(Collectors.toList());
 
-        if (studentNameInput.isEmpty()) {
-            officeHoursTable.setItems(FXCollections.observableArrayList());
-            return;
-        }
+        // sort descending by date then slot:
+        FXCollections.sort(
+                FXCollections.observableArrayList(filtered),
+                Comparator.comparing(OfficeHoursScheduleEntry::getScheduleDate).reversed()
+                        .thenComparing(OfficeHoursScheduleEntry::getTimeSlot).reversed()
+        );
 
-        try {
-            List<String> lines = Files.readAllLines(Paths.get("office_hours_schedule.txt"));
-
-            List<OfficeHoursSearchEntry> matchingEntries = lines.stream()
-                    .map(line -> line.split(",", -1))
-                    .filter(parts -> parts.length >= 6)
-                    .filter(parts -> parts[0].trim().toLowerCase().startsWith(studentNameInput))
-                    .map(parts -> new OfficeHoursSearchEntry(
-                            parts[0].trim(),
-                            LocalDate.parse(parts[1].trim()),
-                            parts[2].trim(),
-                            parts[3].trim()
-                    ))
-                    .collect(Collectors.toList());
-
-            //Sort by date descending, then time slot ascending
-            matchingEntries.sort((e1, e2) -> {
-                int dateComparison = e2.getScheduleDate().compareTo(e1.getScheduleDate());
-                if (dateComparison != 0) {
-                    return dateComparison;
-                }
-                return e1.getTimeSlot().compareToIgnoreCase(e2.getTimeSlot());
-            });
-
-            ObservableList<OfficeHoursSearchEntry> observableList = FXCollections.observableArrayList(matchingEntries);
-            officeHoursTable.setItems(observableList);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        officeHoursTable.setItems(FXCollections.observableArrayList(filtered));
     }
 
     @FXML

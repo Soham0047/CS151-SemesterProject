@@ -1,11 +1,11 @@
 Timmy,2025-04-24,12:45 AM - 1:00 AM,CS151,,
-Janet,2025-04-26,4:30 PM - 4:45 PM,CS151,,
-Timmy,2025-05-06,11:30 AM - 11:45 AM,CS151,,
-Janet,2025-04-27,1:30 PM - 1:45 PM,CS151,,
-Claire,2025-05-21,2:00 PM - 2:15 PM,CS151,,
-Claire,2025-04-26,4:00 PM - 4:15 PM,CS151,,
-Mike Jones,2025-05-18,3:45 PM - 4:00 PM,CS151,,
-Mike Jones,2025-04-26,4:15 PM - 4:30 PM,CS151,,
-Mike Jones,2025-05-13,3:15 PM - 3:30 PM,CS151,,
-Timmy Turner,2025-05-16,9:30 AM - 9:45 AM,CS151,,
-Tina Yu,2025-05-21,11:30 AM - 11:45 AM,CS151,idk,commentttest
+Monkey D. Luffy,2025-05-03,6:30 PM - 6:45 PM,CS151,Wano Arc Doubt,How did Luffy defeat Kaido
+Spiderman,2025-05-08,8:45 PM – 9:00 PM,CS151,Doubts regarding encapsulation,I dont understand how to implement it
+Peter Parker,2025-05-12,12:00 AM - 12:15 AM,CS151,Jumping buildings,Cannot calculate how far to jump for a perfect spider swing
+Logan Paul,2025-05-20,9:45 AM - 10:00 AM,CS151,Prime,Doubt regarding why prime is not doing any business and how I can back out of Lunchly
+Jonathan David,2025-05-20,12:30 PM - 12:45 PM,CS151,OOPs fundamentals,Doubt regarding L12-13
+Timmy,2025-05-20,10:30 AM - 10:45 AM,CS151,JavaFx,Cannot figure out how to do window panes
+Tony Stark,2025-05-23,12:00 AM - 12:15 AM,CS151,Jarvis 3.0,Doubts about integrating quantum technology into Jarvis
+Tony Chopper,2025-05-27,1:30 PM - 1:45 PM,CS151,Everything drug formula,Doubt regarding how to make the everything drug that cures all diseases
+Roronoa Zoro,2025-05-28,8:30 AM - 8:45 AM,CS151,Exam Prep,Questions doubt solving during PYQ
+>>>>>>> assignment-code-version-8-sb
