@@ -6,6 +6,5 @@ Logan Paul,2025-05-20,9:45 AM - 10:00 AM,CS151,Prime,Doubt regarding why prime i
 Jonathan David,2025-05-20,12:30 PM - 12:45 PM,CS151,OOPs fundamentals,Doubt regarding L12-13
 Timmy,2025-05-20,10:30 AM - 10:45 AM,CS151,JavaFx,Cannot figure out how to do window panes
 Tony Stark,2025-05-23,12:00 AM - 12:15 AM,CS151,Jarvis 3.0,Doubts about integrating quantum technology into Jarvis
-Tony Chopper,2025-05-27,1:30 PM - 1:45 PM,CS151,Everything drug formula,Doubt regarding how to make the everything drug that cures all diseases
+Tony Tony Chopper,2025-05-27,1:30 PM - 1:45 PM,CS151,Everything drug formula,Doubt regarding how to make the everything drug that cures all diseases
 Roronoa Zoro,2025-05-28,8:30 AM - 8:45 AM,CS151,Exam Prep,Questions doubt solving during PYQ
->>>>>>> assignment-code-version-8-sb

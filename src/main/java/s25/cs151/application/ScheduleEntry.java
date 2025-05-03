@@ -1,7 +1,5 @@
 package s25.cs151.application;
 
-import javafx.beans.property.SimpleStringProperty;
-
 import java.time.LocalDate;
 
 public abstract class ScheduleEntry {
@@ -10,28 +8,24 @@ public abstract class ScheduleEntry {
     private final LocalDate scheduleDate;
     private final String timeSlot;
 
-
     public ScheduleEntry(String name, String course, LocalDate scheduleDate, String timeSlot) {
-        this.studentName = name;
-        this.course = course;
+        this.studentName  = name;
+        this.course       = course;
         this.scheduleDate = scheduleDate;
-        this.timeSlot = timeSlot;
+        this.timeSlot     = timeSlot;
     }
 
+    /** legacy getter you already had */
     public String getName() {
         return studentName;
     }
 
-    public String getCourse() {
-        return course;
+    /** alias so controllers/FXML bound to “studentName” still work */
+    public String getStudentName() {
+        return studentName;
     }
 
-    public LocalDate getScheduleDate() {
-        return scheduleDate;
-    }
-
-    public String getTimeSlot() {
-        return timeSlot;
-    }
+    public String   getCourse()       { return course;       }
+    public LocalDate getScheduleDate(){ return scheduleDate; }
+    public String   getTimeSlot()     { return timeSlot;     }
 }
-
