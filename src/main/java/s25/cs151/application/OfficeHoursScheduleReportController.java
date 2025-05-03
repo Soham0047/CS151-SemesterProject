@@ -33,7 +33,7 @@ public class OfficeHoursScheduleReportController {
     @FXML
     public void initialize() {
         // Link table columns to OfficeHoursScheduleEntry properties.
-        studentNameCol.setCellValueFactory(new PropertyValueFactory<>("studentName"));
+        studentNameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         scheduleDateCol.setCellValueFactory(new PropertyValueFactory<>("scheduleDate"));
         timeSlotCol.setCellValueFactory(new PropertyValueFactory<>("timeSlot"));
         courseCol.setCellValueFactory(new PropertyValueFactory<>("course"));
