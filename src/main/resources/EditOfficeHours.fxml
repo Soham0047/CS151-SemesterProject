@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="s25.cs151.application.EditOfficeHoursController"
+            prefWidth="1080" prefHeight="720"
+            style="-fx-background-color: #F4F7FA;">
+
+    <!-- search bar -->
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 20;">
+            <Label text="Search Student:" style="-fx-font-size: 14;"/>
+            <TextField fx:id="searchField" promptText="Enter student name"/>
+            <Button text="Search" onAction="#handleSearch"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="15" style="-fx-padding: 20;">
+            <!-- results table -->
+            <TableView fx:id="table" prefHeight="300">
+                <columns>
+                    <TableColumn fx:id="colStudentName" text="Student Name" prefWidth="200"/>
+                    <TableColumn fx:id="colDate"         text="Date"          prefWidth="120"/>
+                    <TableColumn fx:id="colTimeSlot"     text="Time Slot"     prefWidth="180"/>
+                    <TableColumn fx:id="colCourse"       text="Course"        prefWidth="120"/>
+                    <TableColumn fx:id="colReason"       text="Reason"        prefWidth="180"/>
+                    <TableColumn fx:id="colComment"      text="Comment"       prefWidth="180"/>
+                </columns>
+            </TableView>
+
+            <Button text="Edit Selected" onAction="#handleEditSelected"/>
+
+            <Separator/>
+
+            <!-- edit form -->
+            <VBox fx:id="editForm"
+                  spacing="10"
+                  visible="false"
+                  style="-fx-background-color: #FFFFFF; -fx-padding: 20; -fx-border-radius: 8; -fx-background-radius: 8;">
+                <Label text="Edit Schedule" style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+
+                <GridPane hgap="10" vgap="10">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" minWidth="120"/>
+                        <ColumnConstraints hgrow="ALWAYS"/>
+                    </columnConstraints>
+
+                    <Label text="Student Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <TextField fx:id="editNameField"   GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="Date:"          GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <DatePicker fx:id="editDatePicker" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="Time Slot:"     GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <ComboBox fx:id="editTimeSlotCombo" prefWidth="200"
+                              GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                    <Label text="Course:"        GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                    <ComboBox fx:id="editCourseCombo"   prefWidth="200"
+                              GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                    <Label text="Reason:"        GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                    <TextField fx:id="editReasonField"  GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                    <Label text="Comment:"       GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                    <TextField fx:id="editCommentField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                </GridPane>
+
+                <Button text="Save Changes"
+                        style="-fx-background-color: #28A745; -fx-text-fill: white;"
+                        onAction="#handleSaveChanges"/>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

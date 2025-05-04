@@ -113,14 +113,12 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnOfficeHoursReport" text="Office Hours Report" onMouseEntered="#handleHoverEntered" onMouseExited="#handleHoverExited" style="-fx-background-color: transparent; -fx-text-fill: #444; -fx-alignment: center-left; -fx-font-family: 'Segoe UI', sans-serif; -fx-font-size: 14; -fx-padding: 8 16; -fx-border-radius: 8; -fx-background-radius: 8;">
-               <graphic>
-                  <ImageView fitHeight="18" fitWidth="18">
-                     <image>
-                        <Image url="@icons/report.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
+            <Button
+                    fx:id="btnOfficeHours"
+                    text="Office Hours Schedule"
+                    onMouseEntered="#handleHoverEntered"
+                    onMouseExited="#handleHoverExited"
+                    onAction="#handleOfficeHours" style="-fx-background-color: transparent; -fx-text-fill: #444; -fx-alignment: center-left; -fx-font-family: 'Segoe UI', sans-serif; -fx-font-size: 14; -fx-padding: 8 16; -fx-border-radius: 8; -fx-background-radius: 8;">
             </Button>
          </children>
       </VBox>

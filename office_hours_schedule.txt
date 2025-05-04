@@ -6,6 +6,7 @@ Claire,2025-05-21,2:00 PM - 2:15 PM,CS151,,
 Claire,2025-04-26,4:00 PM - 4:15 PM,CS151,,
 Mike Jones,2025-05-18,3:45 PM - 4:00 PM,CS151,,
 Mike Jones,2025-04-26,4:15 PM - 4:30 PM,CS151,,
-Mike Jones,2025-05-13,3:15 PM - 3:30 PM,CS151,,
+Mike Jones,2025-05-14,3:15 PM - 3:30 PM,CS151,,
 Timmy Turner,2025-05-16,9:30 AM - 9:45 AM,CS151,,
 Tina Yu,2025-05-21,11:30 AM - 11:45 AM,CS151,idk,commentttest
+Tina Yu,2025-05-31,11:15 AM - 11:30 AM,CS151,test,

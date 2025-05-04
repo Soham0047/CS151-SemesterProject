@@ -21,6 +21,9 @@ public abstract class ScheduleEntry {
     public String getName() {
         return studentName;
     }
+    public String getStudentName() {
+        return studentName;
+    }
 
     public String getCourse() {
         return course;
