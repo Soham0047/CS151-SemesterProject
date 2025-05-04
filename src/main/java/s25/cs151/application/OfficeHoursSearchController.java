@@ -77,6 +77,7 @@ public class OfficeHoursSearchController {
 
     @FXML
     private void handleDeleteSchedule() {
+        // delete function
         OfficeHoursSearchEntry selectedEntry = officeHoursTable.getSelectionModel().getSelectedItem();
 
         if (selectedEntry == null) {
