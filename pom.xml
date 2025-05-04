@@ -14,8 +14,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <!-- Set the Java version to match your installed JDK (likely 17 or 20) -->
-    <java.version>20</java.version>
+    <!-- Set the Java version to 23 (do not include the patch version here) -->
+    <java.version>23</java.version>
     <!-- Use JavaFX 20 -->
     <javafx.version>20</javafx.version>
   </properties>

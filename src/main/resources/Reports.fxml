@@ -1,54 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="s25.cs151.application.controller.ReportsController"
-            prefWidth="800" prefHeight="600">
-
-    <VBox spacing="20" AnchorPane.topAnchor="20" AnchorPane.leftAnchor="20" 
-          AnchorPane.rightAnchor="20" AnchorPane.bottomAnchor="20">
-        
-        <HBox alignment="CENTER_LEFT" spacing="15">
-            <Label text="Reports and Analytics" 
-                  style="-fx-font-size: 20; -fx-font-weight: bold;"/>
-            <Region HBox.hgrow="ALWAYS" />
-            <Label text="Semester:" />
-            <ComboBox fx:id="semesterSelector" prefWidth="150" />
-        </HBox>
-        
-        <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
-            <Tab text="Office Hours by Day">
-                <VBox spacing="10">
-                    <padding>
-                        <Insets top="10" right="10" bottom="10" left="10" />
-                    </padding>
-                    <Label text="Hours Distribution by Day of Week" 
-                          style="-fx-font-weight: bold;" />
-                    <BarChart fx:id="officeHoursBarChart" legendVisible="false" VBox.vgrow="ALWAYS">
-                        <xAxis>
-                            <CategoryAxis label="Day of Week" />
-                        </xAxis>
-                        <yAxis>
-                            <NumberAxis label="Hours" />
-                        </yAxis>
-                    </BarChart>
-                </VBox>
-            </Tab>
-            <Tab text="Course Distribution">
-                <VBox spacing="10">
-                    <padding>
-                        <Insets top="10" right="10" bottom="10" left="10" />
-                    </padding>
-                    <Label text="Office Hours by Course" 
-                          style="-fx-font-weight: bold;" />
-                    <PieChart fx:id="courseDistributionPieChart" VBox.vgrow="ALWAYS" />
-                </VBox>
-            </Tab>
-        </TabPane>
-    </VBox>
-</AnchorPane>
+<BorderPane  prefHeight="720" prefWidth="1080" style="-fx-background-color: #F4F7FA;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="s25.cs151.application.ReportsController">
+   <center>
+      <ScrollPane fx:id="mainScrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background: transparent;">
+         <content>
+            <VBox fx:id="container" alignment="TOP_LEFT" spacing="10" style="-fx-background-color: #FFFFFF;                          -fx-background-radius: 10; -fx-padding: 30;">
+               <children>
+                  <Label fx:id="heading" style="-fx-font-family: 'Segoe UI', sans-serif;                                   -fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: #333;" text="Reports" />
+                  <TableView fx:id="reportsTable" prefHeight="531.0" prefWidth="798.0">
+                     <columns>
+                        <TableColumn fx:id="semesterCol" prefWidth="162.0" text="Semester" />
+                        <TableColumn fx:id="yearCol" prefWidth="155.0" text="Year" />
+                        <TableColumn fx:id="daysCol" prefWidth="454.0" text="Days" />
+                     </columns>
+                  </TableView>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

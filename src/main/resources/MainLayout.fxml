@@ -10,11 +10,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="mainBorderPane" 
-            xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="s25.cs151.application.controller.MainLayoutController"
-            prefHeight="720" prefWidth="1080">
+<BorderPane fx:id="rootPane" prefHeight="720" prefWidth="1080" style="-fx-background-color: #F4F7FA;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="s25.cs151.application.MainLayoutController">
 
    <top>
       <HBox fx:id="topBar" alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: #FFFFFF;               -fx-padding: 10 20 10 20;               -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 2);">
