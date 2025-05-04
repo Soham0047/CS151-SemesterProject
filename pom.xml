@@ -64,7 +64,7 @@
         <version>0.0.8</version>
         <configuration>
           <!-- This must be the fully qualified name of your main class -->
-          <mainClass>s25.cs151.application.Main</mainClass>
+          <mainClass>s25.cs151.controller.Main</mainClass>
         </configuration>
         <executions>
           <execution>

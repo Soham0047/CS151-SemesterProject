@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane  prefHeight="720" prefWidth="1080" style="-fx-background-color: #F4F7FA;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="s25.cs151.application.ReportsController">
+<BorderPane  prefHeight="720" prefWidth="1080" style="-fx-background-color: #F4F7FA;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="s25.cs151.controller.ReportsController">
    <center>
       <ScrollPane fx:id="mainScrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background: transparent;">
          <content>

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.geometry.Insets?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="s25.cs151.application.OfficeHoursScheduleController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="s25.cs151.controller.OfficeHoursScheduleController">
     <children>
         <GridPane layoutX="20.0" layoutY="20.0" hgap="10" vgap="10">
             <padding>

@@ -1,4 +1,4 @@
-package s25.cs151.application;
+package s25.cs151.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -8,6 +8,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import s25.cs151.model.TimeSlotEntry;
 
 import java.io.IOException;
 import java.nio.file.Files;

@@ -16,7 +16,7 @@
             prefWidth="1080"
             style="-fx-background-color: #F4F7FA;"
             xmlns="http://javafx.com/javafx/23.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="s25.cs151.application.OfficeHoursSearchController">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="s25.cs151.controller.OfficeHoursSearchController">
    <bottom>
       <VBox fx:id="container" alignment="TOP_CENTER" prefHeight="701.0" prefWidth="800.0" spacing="20" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10; -fx-padding: 30; -fx-max-width: 800;" BorderPane.alignment="CENTER">
          <children>
@@ -38,6 +38,7 @@
             </GridPane>
             <TableView fx:id="officeHoursTable" prefHeight="510.0" prefWidth="740.0">
                <columns>
+                  <TableColumn fx:id="colName" prefWidth="200" text="Name" />
                   <TableColumn fx:id="colCourse" prefWidth="200" text="Course" />
                   <TableColumn fx:id="colScheduleDate" prefWidth="280.0" text="Schedule Date" />
                   <TableColumn fx:id="colTimeSlot" prefWidth="212.0" text="Time Slot" />

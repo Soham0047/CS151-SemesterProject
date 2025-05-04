@@ -9,7 +9,7 @@
 <AnchorPane fx:id="rootPane"
             xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="s25.cs151.application.DefineSemesterController"
+            fx:controller="s25.cs151.controller.DefineSemesterController"
             prefWidth="1080" prefHeight="720"
             style="-fx-background-color: #F4F7FA;">
     <children>

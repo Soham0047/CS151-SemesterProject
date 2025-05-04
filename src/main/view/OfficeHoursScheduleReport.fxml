@@ -4,7 +4,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="s25.cs151.application.OfficeHoursScheduleReportController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="s25.cs151.controller.OfficeHoursScheduleReportController">
     <children>
         <TableView fx:id="officeHoursTable" prefWidth="800" prefHeight="600" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.bottomAnchor="10">
             <columns>

@@ -1,4 +1,4 @@
-package s25.cs151.application;
+package s25.cs151.model;
 
 public class TimeSlotEntry {
     private String fromTime;

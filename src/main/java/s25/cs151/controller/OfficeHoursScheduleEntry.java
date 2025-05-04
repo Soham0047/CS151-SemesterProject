@@ -1,11 +1,11 @@
-package s25.cs151.application;
+package s25.cs151.controller;
 
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
+import s25.cs151.model.ScheduleEntry;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class OfficeHoursScheduleEntry extends ScheduleEntry{
+public class OfficeHoursScheduleEntry extends ScheduleEntry {
     private final String reason;
     private final String comment;
 

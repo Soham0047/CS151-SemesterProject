@@ -1,4 +1,4 @@
-package s25.cs151.application;
+package s25.cs151.controller;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

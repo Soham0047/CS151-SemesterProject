@@ -1,6 +1,5 @@
-package s25.cs151.application;
+package s25.cs151.controller;
 
-import javafx.collections.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
