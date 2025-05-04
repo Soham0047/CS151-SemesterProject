@@ -3,37 +3,37 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
-<AnchorPane fx:id="homeCenterPane"
-            xmlns="http://javafx.com/javafx"
+<AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="s25.cs151.application.HomePageController"
-            prefWidth="1080" prefHeight="720"
-            style="-fx-background-color: #F4F7FA;">
+            fx:controller="s25.cs151.application.controller.HomePageController"
+            prefWidth="800" prefHeight="600"
+            style="-fx-background-color: white;">
 
-            <children>
-                <Label layoutX="20" layoutY="20" fx:id="welcomeLabel"
-                       text="Welcome, Dr. Jane Doe!"
-                       style="-fx-font-family: 'Segoe UI', sans-serif;
-                              -fx-font-size: 24;
-                              -fx-font-weight: bold;
-                              -fx-text-fill: #333;"/>
-                <!-- User Photo -->
-                <ImageView layoutX="20" layoutY="70" fx:id="userPhotoView" fitWidth="100" fitHeight="100">
-                    <clip>
-                        <Circle centerX="50" centerY="50" radius="50"/>
-                    </clip>
-                    <image>
-                        <Image url="@icons/userPhoto.png"/>
-                    </image>
-                </ImageView>
-                <!-- Instruction -->
-                <Label layoutX="20" layoutY="190" fx:id="instructionLabel"
-                       text="Please choose an option from the left menu."
-                       style="-fx-font-family: 'Segoe UI', sans-serif;
-                              -fx-font-size: 16;
-                              -fx-text-fill: #555;"/>
-            </children>
-
-
+    <VBox alignment="CENTER" spacing="20" 
+          AnchorPane.topAnchor="50" AnchorPane.leftAnchor="50" 
+          AnchorPane.rightAnchor="50" AnchorPane.bottomAnchor="50">
+        
+        <Label fx:id="welcomeLabel"
+               style="-fx-font-size: 32; -fx-font-weight: bold; -fx-text-fill: #2d3748;"
+               text="Welcome to the Office Hours Manager" />
+        
+        <Label fx:id="dateLabel"
+               style="-fx-font-size: 18; -fx-text-fill: #4a5568;"
+               text="Today's Date" />
+        
+        <Region prefHeight="30" />
+        
+        <VBox spacing="15" alignment="CENTER">
+            <Label text="Quick Actions" 
+                  style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #2d3748;" />
+            
+            <HBox spacing="20" alignment="CENTER">
+                <Button fx:id="startButton" text="Get Started"
+                       style="-fx-background-color: #4285F4; -fx-text-fill: white; 
+                              -fx-font-size: 16; -fx-padding: 10 20;" />
+            </HBox>
+        </VBox>
+    </VBox>
 </AnchorPane>
